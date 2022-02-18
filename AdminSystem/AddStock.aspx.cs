@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClassLibrary;
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -12,7 +13,16 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void Submit(object sender, EventArgs e)
+    {
+        clsStock AnStock = new clsStock();
+        AnStock.name = "Sparkling water";
+        AnStock.quantity = 160;
+        Session["AnStock"] = AnStock;
+        //Response.Write(AnStock.quantity + '\n' + AnStock.name);
+        Response.Redirect("StockViewer.aspx");
+    }
+    protected void GoBack(object sender, EventArgs e)
     {
         Response.Redirect("StockViewer.aspx");
     }

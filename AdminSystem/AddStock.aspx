@@ -26,10 +26,10 @@
             <asp:TextBox ID="TextBoxQuantity" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Button ID="ButtonSubmit" runat="server" OnClick="ButtonSubmit_Click" OnClientClick="onSubmit" Text="Submit" />
+            <asp:Button ID="ButtonSubmit" runat="server" OnClick="Submit" OnClientClick="onSubmit" Text="Submit" />
         </p>
         <p>
-            <asp:Button ID="BackButton" runat="server" OnClick="Button1_Click" Text="Go Back" />
+            <asp:Button ID="BackButton" runat="server" OnClick="GoBack" Text="Go Back" />
         </p>
     </form>
 </body>
