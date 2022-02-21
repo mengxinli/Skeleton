@@ -1,6 +1,6 @@
 namespace ClassLibrary
 {
-    public class clsOrder
+    public class clsCustomer
     {
     }
 }
