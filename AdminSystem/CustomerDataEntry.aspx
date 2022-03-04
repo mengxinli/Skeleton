@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <script runat="server">
 
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void ButtonSubmit_Click(object sender, EventArgs e)
     {
 
     }
@@ -12,27 +12,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-       <table>
-        <tr>
-            <td> <asp:Label ID="Label1" runat="server" Text="Name:"></asp:Label> </td>
-            <td> <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
-        </tr>
-          <tr>
-            <td> <asp:Label ID="Label2" runat="server" Text="Password:"></asp:Label> </td>
-            <td> <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
-        </tr>
-         <tr>
-            <td><asp:Button ID="Button2" runat="server" Text="login" onclick="Button2_Click" /> </td>
-            <td> <asp:Button ID="Button1" runat="server" Text="register" onclick="Button1_Click" /></td>
-        </tr>
-       </table>
-    </div>
+        <div>
+        </div>
+        <asp:Label ID="UserName" runat="server" Text="UserName" ></asp:Label>
+        <asp:TextBox ID="TextBoxUserName" runat="server"></asp:TextBox>
+        <p>
+            <asp:Label ID="PassWord" runat="server" Text="PassWord"></asp:Label>
+            <asp:TextBox ID="TextBoxPassWord" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Button ID="ButtonSubmit" runat="server" OnClick="Submit" OnClientClick="onSubmit" Text="Submit" />
+        </p>
+        <p>
+            <asp:Button ID="BackButton" runat="server" OnClick="Back" Text="Back" />
+        </p>
     </form>
 </body>
 </html>

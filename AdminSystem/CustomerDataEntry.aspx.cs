@@ -4,16 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ClassLibrary;
 
-public partial class CustomerDataEntry : System.Web.UI.Page
+public partial class _Default : System.Web.UI.Page
 {
-    protected void ButtonSubmit_Click(object sender, EventArgs e)
+    protected void Page_Load(object sender, EventArgs e)
     {
+
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void Submit(object sender, EventArgs e)
     {
-        //navigate to the viewer page
+        clsCustomer CustomerMember = new clsCustomer();
+        CustomerMember.UserName = "Michael Jordan";
+        CustomerMember.PassWord = 123456;
+        Session["CustomerMember"] = CustomerMember;
+        Response.Redirect("CustomerViewer.aspx");
+    }
+    protected void Back(object sender, EventArgs e)
+    {
         Response.Redirect("CustomerViewer.aspx");
     }
 }

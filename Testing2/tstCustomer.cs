@@ -56,16 +56,16 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void PasswordOK()
+        public void PassWordOK()
         {
             //create an instance of the class we want to create
             clsCustomer CustomerMember = new clsCustomer();
             //create some test data
             Int32 TestData = 123456;
             //assign the data to the property
-            CustomerMember.Password = TestData;
+            CustomerMember.PassWord = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(CustomerMember.Password, TestData);
+            Assert.AreEqual(CustomerMember.PassWord, TestData);
         }
 
         [TestMethod]
