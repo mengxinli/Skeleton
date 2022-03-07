@@ -17,6 +17,6 @@ public partial class StockViewer : System.Web.UI.Page
 
     protected void AddStockButton_Click(object sender, EventArgs e)
     {
-        Response.Redirect("AddStock.aspx");
+        Response.Redirect("StockDataEntry.aspx");
     }
 }

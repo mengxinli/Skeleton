@@ -16,8 +16,8 @@ public partial class _Default : System.Web.UI.Page
     protected void Submit(object sender, EventArgs e)
     {
         clsStock AnStock = new clsStock();
-        AnStock.name = "Sparkling water";
-        AnStock.quantity = 160;
+        AnStock.name = TextBoxName.Text;
+        AnStock.quantity = int.Parse(TextBoxQuantity.Text);
         Session["AnStock"] = AnStock;
         //Response.Write(AnStock.quantity + '\n' + AnStock.name);
         Response.Redirect("StockViewer.aspx");

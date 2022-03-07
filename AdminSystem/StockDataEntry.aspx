@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerDataEntry.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StockDataEntry.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html>
 <script runat="server">
@@ -19,17 +19,17 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Label ID="UserName" runat="server" Text="UserName" ></asp:Label>
-        <asp:TextBox ID="TextBoxUserName" runat="server"></asp:TextBox>
+        <asp:Label ID="Name" runat="server" Text="Name" width="80px"></asp:Label>
+        <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
         <p>
-            <asp:Label ID="PassWord" runat="server" Text="PassWord"></asp:Label>
-            <asp:TextBox ID="TextBoxPassWord" runat="server"></asp:TextBox>
+            <asp:Label ID="Quantity" runat="server" Text="Quantity"></asp:Label>
+            <asp:TextBox ID="TextBoxQuantity" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Button ID="ButtonSubmit" runat="server" OnClick="Submit" OnClientClick="onSubmit" Text="Submit" />
         </p>
         <p>
-            <asp:Button ID="BackButton" runat="server" OnClick="Back" Text="Back" />
+            <asp:Button ID="BackButton" runat="server" OnClick="GoBack" Text="Go Back" />
         </p>
     </form>
 </body>
