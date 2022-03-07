@@ -80,15 +80,6 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void StaffDobPropertyOK()
-        {
-            clsStaff staffMember = new clsStaff();
-            String TestData = "01/01/1990";
-            staffMember.StaffDob = TestData;
-            Assert.AreEqual(staffMember.StaffDob, TestData);
-        }
-
-        [TestMethod]
         public void StaffMngrPropertyOK()
         {
             clsStaff staffMember = new clsStaff();

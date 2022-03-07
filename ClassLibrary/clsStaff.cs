@@ -11,7 +11,6 @@ namespace ClassLibrary
         public string StaffPassword { get; set; }
         public int StaffSalary { get; set; }
         public string StaffRole { get; set; }
-        public string StaffDob { get; set; }
         public bool StaffMngr { get; set; }
     }
 }
