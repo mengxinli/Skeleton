@@ -23,13 +23,21 @@
         <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="Quantity" runat="server" Text="Quantity"></asp:Label>
-            <asp:TextBox ID="TextBoxQuantity" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxQuantity" runat="server" OnTextChanged="TextBoxQuantity_TextChanged"></asp:TextBox>
         </p>
         <p>
-            <asp:Button ID="ButtonSubmit" runat="server" OnClick="Submit" OnClientClick="onSubmit" Text="Submit" />
+            <asp:Label ID="Type" runat="server" Text="Type"></asp:Label>
+            <asp:TextBox ID="TextBoxType" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="Remark" runat="server" Text="Remark"></asp:Label>
+            <asp:TextBox ID="TextBoxRemark" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Button ID="BackButton" runat="server" OnClick="GoBack" Text="Go Back" />
+        </p>
+        <p>
+            <asp:Button ID="ButtonSubmit" runat="server" OnClick="Submit" OnClientClick="onSubmit" Text="Submit" />
         </p>
     </form>
 </body>
