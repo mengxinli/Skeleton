@@ -5,5 +5,8 @@ namespace ClassLibrary
     {
         public String name;
         public int quantity;
+        public String type;
+        public String remark;
+        public String time;
     }
 }

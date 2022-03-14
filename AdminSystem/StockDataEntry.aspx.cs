@@ -17,7 +17,7 @@ public partial class _Default : System.Web.UI.Page
     {
         clsStock AnStock = new clsStock();
         AnStock.name = TextBoxName.Text;
-        AnStock.quantity = int.Parse(TextBoxQuantity.Text);
+        AnStock.quantity = int.Parse(TextBoxQuantity.Text)-10;
         Session["AnStock"] = AnStock;
         //Response.Write(AnStock.quantity + '\n' + AnStock.name);
         Response.Redirect("StockViewer.aspx");
