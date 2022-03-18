@@ -12,7 +12,16 @@ public partial class CustomerViewer : System.Web.UI.Page
     {
         clsCustomer CustomerMember = new clsCustomer();
         CustomerMember = (clsCustomer)Session["CustomerMember"];
-        Response.Write(CustomerMember.PassWord + '\n' + CustomerMember.UserName);
+
+        Response.Write("User Name: " + CustomerMember.UserName + "<br />");
+
+        Response.Write("Pass Word: " + CustomerMember.PassWord + "<br />");
+
+        Response.Write("Phone Number: " + CustomerMember.PhoneNumber + "<br />");
+
+        Response.Write("User Id: " + CustomerMember.UserId + "<br />");
+
+        Response.Write("Date : " + CustomerMember.DateAdded + "<br />");
     }
 
     protected void CustomerDataEntryButton_Click(object sender, EventArgs e)
