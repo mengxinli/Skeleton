@@ -19,25 +19,31 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Label ID="Name" runat="server" Text="Name" width="80px"></asp:Label>
-        <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+        <asp:Label ID="Id" runat="server" Text="ID" width="88px"></asp:Label>
+        <asp:TextBox ID="TextBoxID" runat="server"></asp:TextBox>
         <p>
-            <asp:Label ID="Quantity" runat="server" Text="Quantity"></asp:Label>
+        <asp:Label ID="Name" runat="server" Text="Name" width="88px"></asp:Label>
+        <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Label ID="Quantity" runat="server" Text="Quantity" width="88px"></asp:Label>
             <asp:TextBox ID="TextBoxQuantity" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="Type" runat="server" Text="Type"></asp:Label>
+            <asp:Label ID="Type" runat="server" Text="Type" width="88px"></asp:Label>
             <asp:TextBox ID="TextBoxType" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="Remark" runat="server" Text="Remark"></asp:Label>
+            <asp:Label ID="Remark" runat="server" Text="Remark" width="88px"></asp:Label>
             <asp:TextBox ID="TextBoxRemark" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Button ID="BackButton" runat="server" OnClick="GoBack" Text="Go Back" />
+            <asp:Label ID="ModityTime" runat="server" Text="Modity Time"></asp:Label>
+            <asp:TextBox ID="TextBoxTime" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Button ID="ButtonSubmit" runat="server" OnClick="Submit" OnClientClick="onSubmit" Text="Submit" />
+            <asp:Button ID="BackButton" runat="server" OnClick="GoBack" Text="Go Back" />
         </p>
     </form>
 </body>
