@@ -3,10 +3,18 @@ namespace ClassLibrary
 {
     public class clsStock
     {
-        public String name;
-        public int quantity;
-        public String type;
-        public String remark;
-        public String time;
+        private int id;
+        private String name;
+        private int quantity;
+        private String type;
+        private String remark;
+        private String time;
+
+        public int Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
+        public int Quantity { get => quantity; set => quantity = value; }
+        public string Type { get => type; set => type = value; }
+        public string Remark { get => remark; set => remark = value; }
+        public string Time { get => time; set => time = value; }
     }
 }

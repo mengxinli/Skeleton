@@ -23,7 +23,7 @@
         <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="Quantity" runat="server" Text="Quantity"></asp:Label>
-            <asp:TextBox ID="TextBoxQuantity" runat="server" OnTextChanged="TextBoxQuantity_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="TextBoxQuantity" runat="server"></asp:TextBox>
         </p>
         <p>
             <asp:Label ID="Type" runat="server" Text="Type"></asp:Label>
