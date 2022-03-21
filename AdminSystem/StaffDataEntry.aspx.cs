@@ -34,4 +34,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["staffMember"] = staffMember;
         Response.Redirect("StaffManagementViewer.aspx");
     }
-}
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsStaff staffMember = new clsStaff();
+        Int32 StaffId;
+        Boolean Found = false;
+        StaffId = Convert.ToInt32(txtStaffId.Text);
+        Found = staffMember.Find(StaffId);
+        if (Found == true)
+        {
+            txtName.Text = StaffId.StaffName;
+            txtUsername.Text = StaffId.StaffUsername;
+            txtPassword.Text = StaffId.StaffPassword;
+            txtRole.Text = StaffId.StaffRole;
+            txtSalary.Text = StaffId.StaffSalary;
+            txtDateAdded.Text = StaffId.StaffDateAdded.ToString();
+        }
+    }
