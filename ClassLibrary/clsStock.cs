@@ -4,11 +4,11 @@ namespace ClassLibrary
     public class clsStock
     {
         private int id;
-        private String name;
+        private string name;
         private int quantity;
-        private String type;
-        private String remark;
-        private String time;
+        private string type;
+        private string remark;
+        private string time;
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
@@ -17,6 +17,11 @@ namespace ClassLibrary
         public bool Find(int stockID)
         {
             return true;
+        }
+
+        public string Valid(string Id, string name, string quantity,string type, string remark, string time)
+        {
+            return "";
         }
 
         public string Type { get => type; set => type = value; }

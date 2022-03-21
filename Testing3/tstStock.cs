@@ -1,18 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClassLibrary;
+﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Testing3
 {
-    class tstStock
+    [TestClass]
+    public class tstStock
     {
+        public tstStock()
+        {
+        }
 
         [TestMethod]
-        public void FindStockOK()
+        public void ValidMethodOK()
+        {
+            clsStock clsStock = new clsStock();
+            String Error = "";
+            Error = clsStock.Valid("", "", "", "", "", "");
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void FindStockOK() // dummy
         {
             clsStock clsStock = new clsStock();
             Boolean Found = false;
@@ -20,6 +32,17 @@ namespace Testing3
             Found = clsStock.Find(StockID);
             Assert.IsTrue(Found);
         }
+
+        [TestMethod]
+        public void StockNamePropertyOK()
+        {
+            clsStock clsStock = new clsStock();
+            Int32 TestData = 123;
+            clsStock.Id = TestData;
+            Assert.AreEqual(clsStock.Id, TestData);
+
+        }
+
+
     }
-    
 }
