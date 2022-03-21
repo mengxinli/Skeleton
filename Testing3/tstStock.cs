@@ -34,12 +34,21 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void StockNamePropertyOK()
+        public void StockIdPropertyOK()
         {
             clsStock clsStock = new clsStock();
             Int32 TestData = 123;
             clsStock.Id = TestData;
             Assert.AreEqual(clsStock.Id, TestData);
+
+        }
+
+        public void StockNamePropertyOK()
+        {
+            clsStock clsStock = new clsStock();
+            string TestData = "sample";
+            clsStock.Name = TestData;
+            Assert.AreEqual(clsStock.Name, TestData);
 
         }
 
