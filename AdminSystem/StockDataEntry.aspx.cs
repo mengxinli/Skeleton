@@ -21,6 +21,7 @@ public partial class _Default : System.Web.UI.Page
         AnStock.Quantity = Convert.ToInt32(TextBoxQuantity.Text);
         AnStock.Type = TextBoxType.Text;
         AnStock.Remark = TextBoxRemark.Text;
+        AnStock.Available = Availablity.Checked;
         if (TextBoxTime.Text.Length == 0)
             AnStock.Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         else
@@ -34,17 +35,5 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("StockViewer.aspx");
     }
 
-    protected void btnFind(object sender, EventArgs e)
-    {
-        clsStock clsStock = new clsStock();
-        Int32 Id;
-        Boolean Found = false;
-        UserId = Convert.ToInt32(TextBoxUserId.Text);
-        Found = CustomerMember.Find(UserId);
-        if (Found == true)
-        {
-            TextBoxDateAdded.Text = CustomerMember.DateAdded.ToString();
-            TextBoxUserName.Text = CustomerMember.UserName.ToString();
-        }
-    }
+    
 }

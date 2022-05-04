@@ -10,14 +10,14 @@ public partial class StockViewer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsStock AnStock = new clsStock();
-        AnStock = (clsStock)Session["AnStock"];
-        Response.Write("Stock ID: " + AnStock.Id+ "<br />");
-        Response.Write("Stock Name: " + AnStock.Name + "<br />");
-        Response.Write("Stock Quantity: " + AnStock.Quantity + "<br />");
-        Response.Write("Stock Type: " + AnStock.Type + "<br />");
-        Response.Write("Stock Remark: " + AnStock.Remark + "<br />");
-        Response.Write("Modify Time: " + AnStock.Time + "<br />");
+        clsStock AnStock = (clsStock)Session["AnStock"];
+        Response.Write("Stock ID: " + AnStock.Id+ "<br /><br />");
+        Response.Write("Stock Name: " + AnStock.Name + "<br /><br />");
+        Response.Write("Stock Quantity: " + AnStock.Quantity + "<br /><br />");
+        Response.Write("Stock Type: " + AnStock.Type + "<br /><br />");
+        Response.Write("Stock Remark: " + AnStock.Remark + "<br /><br />");
+        Response.Write("Stock Availablity: " + AnStock.Available + "<br /><br />");
+        Response.Write("Modify Time: " + AnStock.Time + "<br /><br />");
     }
 
     protected void AddStockButton_Click(object sender, EventArgs e)

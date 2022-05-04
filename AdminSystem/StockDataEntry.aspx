@@ -38,8 +38,11 @@
             <asp:TextBox ID="TextBoxRemark" runat="server"></asp:TextBox>
         </p>
         <p>
-            <asp:Label ID="ModityTime" runat="server" Text="Modity Time"></asp:Label>
+            <asp:Label ID="ModifyTime" runat="server" Text="Modify Time"></asp:Label>
             <asp:TextBox ID="TextBoxTime" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:CheckBox ID="Availablity" runat="server" Text="Available" />
         </p>
         <p>
             <asp:Button ID="ButtonSubmit" runat="server" OnClick="Submit" OnClientClick="onSubmit" Text="Submit" />
