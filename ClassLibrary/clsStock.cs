@@ -52,7 +52,7 @@ namespace ClassLibrary
             if (quantity > 500)
                 Error += "The quantity should not be more than 500 : ";
             if (!types.Contains(type))
-                Error += "The type should be Food, Utils oe Others : ";
+                Error += "The type should be Food, Utils or Others : ";
             if (remark.Length > 50)
                 Error += "Remark is too long : ";
             if (!DateTime.TryParse(time, out _))
