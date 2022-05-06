@@ -10,11 +10,11 @@ namespace Testing1
     {
         //Good Test Data
         string StaffName = "John Stone";
-        string staffUsername = "johnstone3";
-        string staffPassword = "password123";
-        string staffSalary = "13000";
-        string staffRole = "Chef";
-        string staffDateAdded = DateTime.Now.Date.ToString();
+        string StaffUsername = "johnstone3";
+        string StaffPassword = "password123";
+        string StaffSalary = "13000";
+        string StaffRole = "Chef";
+        string StaffDateAdded = DateTime.Now.Date.ToString();
         
         [TestMethod]
         public void InstanceOK()
@@ -134,9 +134,9 @@ namespace Testing1
             clsStaff staffMember = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffId = 3;
+            Int32 StaffId = 2;
             Found = staffMember.Find(StaffId);
-            if (staffMember.StaffDateAdded != Convert.ToDateTime("16/09/2015"))
+            if (staffMember.StaffDateAdded != Convert.ToDateTime("01/03/2022"))
             {
                 OK = false;
             }
@@ -151,9 +151,9 @@ namespace Testing1
             clsStaff staffMember = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
             Found = staffMember.Find(StaffId);
-            if (staffMember.StaffName != "Test Name")
+            if (staffMember.StaffName != "Anne Vaughn")
             {
                 OK = false;
             }
@@ -168,9 +168,9 @@ namespace Testing1
             clsStaff staffMember = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffId = 3;
+            Int32 StaffId = 1;
             Found = staffMember.Find(StaffId);
-            if (staffMember.StaffUsername != "Test Username")
+            if (staffMember.StaffUsername != "johnstones1")
             {
                 OK = false;
             }
@@ -185,9 +185,9 @@ namespace Testing1
             clsStaff staffMember = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffId = 4;
+            Int32 StaffId = 2;
             Found = staffMember.Find(StaffId);
-            if (staffMember.StaffPassword != "Test Password")
+            if (staffMember.StaffPassword != "pssword135")
             {
                 OK = false;
             }
@@ -204,7 +204,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 StaffId = 5;
             Found = staffMember.Find(StaffId);
-            if (staffMember.StaffSalary != 00000)
+            if (staffMember.StaffSalary != 14000)
             {
                 OK = false;
             }
@@ -219,9 +219,9 @@ namespace Testing1
             clsStaff staffMember = new clsStaff();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StaffId = 2;
+            Int32 StaffId = 5;
             Found = staffMember.Find(StaffId);
-            if (staffMember.StaffRole != "Test Role")
+            if (staffMember.StaffRole != "Chef")
             {
                 OK = false;
             }
@@ -269,6 +269,8 @@ namespace Testing1
 
         }
 
+        
+        [TestMethod]
         public void StaffNameMin()
         {
             clsStaff staffMember = new clsStaff();
@@ -277,7 +279,9 @@ namespace Testing1
             Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
             Assert.AreEqual(Error, "");
         }
+        
 
+        
         [TestMethod]
         public void StaffNameMinPlusOne()
         {
@@ -287,25 +291,38 @@ namespace Testing1
             Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
             Assert.AreEqual(Error, "");
         }
+        
 
+        
         [TestMethod]
         public void StaffNameMaxLessOne()
         {
             clsStaff staffMember = new clsStaff();
             String Error = "";
-            string StaffName = "aaaaa";
+            StaffName = StaffName.PadRight(49, 'a');
             Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
             Assert.AreEqual(Error, "");
         }
+        
+       
         [TestMethod]
         public void StaffNameMax()
         {
             clsStaff staffMember = new clsStaff();
             String Error = "";
-            string StaffName = "aaaaaa";
+            StaffName = StaffName.PadRight(50, 'a');
             Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
 
-            Assert.AreEqual(Error, "");
+        [TestMethod]
+        public void StaffNameMaxPlusOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffName = StaffName.PadRight(51, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -313,10 +330,364 @@ namespace Testing1
         {
             clsStaff staffMember = new clsStaff();
             String Error = "";
-            string StaffName = "aaa"; 
+            StaffName = StaffName.PadRight(25, 'a');
             Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
             Assert.AreEqual(Error, "");
         }
+
+
+        [TestMethod]
+        public void StaffDateAddedExtremeMin()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string StaffDateAdded = TestDate.ToString();
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffDateAddedMinLessOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-1);
+            string StaffDateAdded = TestDate.ToString();
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffDateAddedMin()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years 
+            TestDate = TestDate.AddYears(-16);
+            string StaffDateAdded = TestDate.ToString();
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffDateAddedMinPlusOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string StaffDateAdded = TestDate.ToString();
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffDateAddedExtremeMax()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string StaffDateAdded = TestDate.ToString();
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffDateAddedInvalidData()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffDateAdded = "This is not a date!";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void StaffUsernameMinLessOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffUsername = "";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        
+        [TestMethod]
+        public void StaffUsernameMin()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffUsername = "a";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        
+
+        
+        [TestMethod]
+        public void StaffUsernameMinPlusOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffUsername = "aa";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        
+
+        
+        [TestMethod]
+        public void StaffUsernameMaxLessOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffUsername = StaffName.PadRight(49, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+        
+
+        [TestMethod]
+        public void StaffUsernameMax()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffUsername = StaffUsername.PadRight(20, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffUsernameMaxPlusOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffUsername = StaffUsername.PadRight(21, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffUsernameMid()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffUsername = StaffUsername.PadRight(10, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffPasswordMinLessOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffPassword = "";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        
+        [TestMethod]
+        public void StaffPasswordMin()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffPassword = "a";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        
+
+        
+        [TestMethod]
+        public void StaffPasswordMinPlusOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffPassword = "aa";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        
+
+        
+        [TestMethod]
+        public void StaffPasswordMaxLessOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffPassword = StaffPassword.PadRight(49, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+        
+
+        [TestMethod]
+        public void StaffPasswordMax()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffPassword = StaffPassword.PadRight(50, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffPasswordMaxPlusOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffPassword = StaffPassword.PadRight(51, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffPasswordMid()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffPassword = StaffPassword.PadRight(25, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryMinLessOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffSalary = "";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
+        [TestMethod]
+        public void StaffSalaryMin()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffSalary = "a";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void StaffSalaryMinPlusOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffSalary = "aa";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryExtremeMax()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffSalary = StaffSalary.PadRight(100, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void StaffRoleMinLessOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffRole = "";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+
+        [TestMethod]
+        public void StaffRoleMin()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffRole = "a";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+
+
+        [TestMethod]
+        public void StaffRoleMinPlusOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            string StaffRole = "aa";
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+
+
+        [TestMethod]
+        public void StaffRoleMaxLessOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffRole = StaffRole.PadRight(19, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void StaffRoleMax()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffRole = StaffRole.PadRight(20, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffRoleMaxPlusOne()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffRole = StaffRole.PadRight(21, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffRoleMid()
+        {
+            clsStaff staffMember = new clsStaff();
+            String Error = "";
+            StaffRole = StaffRole.PadRight(10, 'a');
+            Error = staffMember.Valid(StaffName, StaffUsername, StaffPassword, StaffSalary, StaffRole, StaffDateAdded);
+            Assert.AreEqual(Error, "");
+        }
+
 
     }
 }
