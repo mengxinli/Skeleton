@@ -14,13 +14,10 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblStaffId" runat="server" Text="Staff ID" width="78px"></asp:Label>
-            <asp:TextBox ID="txtStaffId" runat="server"></asp:TextBox>
-            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
-        </div>
         <asp:Label ID="lblStaffName" runat="server" Text="Name" width="78px"></asp:Label>
         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-        <br />
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+        </div>
         <asp:Label ID="lblStaffUsername" runat="server" BorderStyle="None" EnableTheming="True" Text="Username" width="78px"></asp:Label>
         <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
         <br />
@@ -31,7 +28,7 @@
         <asp:TextBox ID="txtSalary" runat="server"></asp:TextBox>
         <br />
         <asp:Label ID="lblStaffRole" runat="server" Text="Role" width="78px"></asp:Label>
-        <asp:TextBox ID="txtRole" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtRole" runat="server" OnTextChanged="txtRole_TextChanged"></asp:TextBox>
         <br />
         <asp:Label ID="lblStaffDateAdded" runat="server" Text="Date Added" width="78px"></asp:Label>
         <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
@@ -44,7 +41,8 @@
         <br />
         <br />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
-&nbsp;<asp:Button ID="btnCancel" runat="server" Text="Cancel" />
-    </form>
+        <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+        <br />
+&nbsp;</form>
 </body>
 </html>
