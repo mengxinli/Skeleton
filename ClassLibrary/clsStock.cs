@@ -34,7 +34,21 @@ namespace ClassLibrary
 
         public bool Find(int stockID)
         {
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Id", Id);
+            DB.Execute("sproc_tblStock_FilterById");
+            if (DB.Count == 1)
+            {
+                id = Convert.ToInt32(DB.DataTable.Rows[0]["Id"]);
+                name = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
+                quantity = Convert.ToInt32(DB.DataTable.Rows[0]["Quantity"]);
+                type = Convert.ToString(DB.DataTable.Rows[0]["Type"]);
+                remark = Convert.ToString(DB.DataTable.Rows[0]["Remark"]);
+                time = Convert.ToString(DB.DataTable.Rows[0]["Time"]);
+                available = Convert.ToBoolean(DB.DataTable.Rows[0]["Available"]);
+                return true;
+            }
+            else return false;
         }
 
         public string Type { get => type; set => type = value; }
