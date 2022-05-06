@@ -35,7 +35,7 @@ namespace ClassLibrary
         public bool Find(int stockID)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@Id", Id);
+            DB.AddParameter("@Id", stockID);
             DB.Execute("sproc_tblStock_FilterById");
             if (DB.Count == 1)
             {
