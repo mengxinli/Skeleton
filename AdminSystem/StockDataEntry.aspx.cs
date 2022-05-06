@@ -35,5 +35,28 @@ public partial class _Default : System.Web.UI.Page
         Response.Redirect("StockViewer.aspx");
     }
 
-    
+
+
+    protected void Find_Click(object sender, EventArgs e)
+    {
+        clsStock AnStock = new clsStock();
+        Int32 Id;
+        Boolean Found = false;
+        Id = Convert.ToInt32(TextBoxID.Text);
+        Found = AnStock.Find(Id);
+        if(Found == true)
+        {
+            TextBoxID.Text = AnStock.Id.ToString();
+            TextBoxName.Text = AnStock.Name;
+            TextBoxQuantity.Text = AnStock.Quantity.ToString();
+            TextBoxType.Text = AnStock.Type;
+            TextBoxRemark.Text = AnStock.Remark;
+            TextBoxTime.Text = AnStock.Time;
+            if (AnStock.Available)
+                Availablity.Checked = true;
+            else Availablity.Checked = false;
+
+        }
+
+    }
 }
