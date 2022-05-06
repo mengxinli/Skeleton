@@ -10,14 +10,14 @@ namespace ClassLibrary
         private int quantity;
         private string type;
         private string remark;
-        private DateTime time;
+        private string time;
         private bool available;
         private static readonly List<string> types = new List<string>
             { "Food","Utils","Others"};
 
         public clsStock() { }
 
-        public clsStock(int id, string name, int quantity, string type, string remark, DateTime time, bool available)
+        public clsStock(int id, string name, int quantity, string type, string remark, string time, bool available)
         {
             this.id = id;
             this.name = name;
@@ -39,7 +39,7 @@ namespace ClassLibrary
 
         public string Type { get => type; set => type = value; }
         public string Remark { get => remark; set => remark = value; }
-        public DateTime Time { get => time; set => time = value; }
+        public string Time { get => time; set => time = value; }
         public bool Available { get => available; set => available = value; }
 
         public string Valid(int id, string name, int quantity, string type, string remark, string time)
